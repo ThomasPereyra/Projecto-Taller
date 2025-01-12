@@ -1,0 +1,3 @@
+Proximamente podria intentar agregarse o expandir la logica del negocio.
+
+Seria muy dificil una vez que la base de datos este llena de archivos pero es un desafio interesante
