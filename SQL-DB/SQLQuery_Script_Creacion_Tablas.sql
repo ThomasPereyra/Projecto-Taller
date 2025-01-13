@@ -44,29 +44,35 @@ CONSTRAINT pk_categorias PRIMARY KEY (id_categoria)
 
 CREATE TABLE provedores (
 id_provedor int identity,
-descipcion varchar(50) NOT NULL,
+descripcion varchar(50) NOT NULL,
 telefono varchar(15) NOT NULL
 CONSTRAINT pk_provedores PRIMARY KEY (id_provedor)
+)
+
+CREATE TABLE estados (
+id_estado int identity,
+estado varchar(30) NOT NULL
+CONSTRAINT pk_estados PRIMARY KEY (id_estado)
 )
 
 --creacion de tablas maestras
 
 CREATE TABLE clientes (
 id_cliente int identity,
-ubicacion int,
+id_barrio int,
 nombre varchar(30) NOT NULL,
 apellido varchar(30) NOT NULL,
 dni varchar(15) NOT NULL,
 fecha_nacimiento date
 CONSTRAINT pk_clientes PRIMARY KEY (id_cliente),
-CONSTRAINT fk_clientes_barrios FOREIGN KEY (ubicacion) REFERENCES barrios (id_barrio)
+CONSTRAINT fk_clientes_barrios FOREIGN KEY (id_barrio) REFERENCES barrios (id_barrio)
 )
 
 CREATE TABLE vehiculos (
 id_vehiculo int identity,
 id_cliente int NOT NULL,
-id_modelo int NOT NULL,
-patente varchar(10)
+patente varchar(10) UNIQUE,
+id_modelo int NOT NULL
 CONSTRAINT pk_vehiculos PRIMARY KEY (id_vehiculo)
 CONSTRAINT fk_vehiculos_clientes FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente),
 CONSTRAINT fk_vehiculos_modelos FOREIGN KEY (id_modelo) REFERENCES modelos (id_modelo)
@@ -94,7 +100,8 @@ CREATE TABLE sucursales (
 id_sucursal int identity,
 direccion int NOT NULL,
 telefono varchar(15) NOT NULL,
-descripcion varchar(100) NOT NULL
+descripcion varchar(100) NOT NULL,
+email varchar(30) NOT NULL
 CONSTRAINT pk_sucursales PRIMARY KEY (id_sucursal)
 CONSTRAINT fk_sucursales_barrios FOREIGN KEY (direccion) REFERENCES barrios (id_barrio)
 )
@@ -119,12 +126,15 @@ id_reparacion int identity,
 id_vehiculo int NOT NULL,
 id_mecanico int NOT NULL,
 id_sucursal int NOT NULL,
-fecha_reparacion datetime NOT NULL,
-costo_reparacion decimal(10,2) NOT NULL
+fecha_inicio datetime NOT NULL,
+costo_reparacion decimal(10,2) NOT NULL,
+fecha_finalizacion datetime,
+id_estado int NOT NULL
 CONSTRAINT pk_reparaciones PRIMARY KEY (id_reparacion)
 CONSTRAINT fk_reparaciones_vehiculos FOREIGN KEY (id_vehiculo) REFERENCES vehiculos (id_vehiculo),
 CONSTRAINT fk_reparaciones_mecanicos FOREIGN KEY (id_mecanico) REFERENCES mecanicos (id_mecanico),
-CONSTRAINT fk_reparaciones_sucursales FOREIGN KEY (id_sucursal) REFERENCES sucursales (id_sucursal)
+CONSTRAINT fk_reparaciones_sucursales FOREIGN KEY (id_sucursal) REFERENCES sucursales (id_sucursal),
+CONSTRAINT fk_reparaciones_estados FOREIGN KEY (id_estado) REFERENCES estados (id_estado)
 )
 
 CREATE TABLE detalles_reparaciones (
