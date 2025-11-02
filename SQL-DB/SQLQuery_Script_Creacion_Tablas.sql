@@ -42,11 +42,11 @@ categoria varchar(30) NOT NULL
 CONSTRAINT pk_categorias PRIMARY KEY (id_categoria)
 )
 
-CREATE TABLE provedores (
-id_provedor int identity,
+CREATE TABLE proveedores (
+id_proveedor int identity,
 descripcion varchar(50) NOT NULL,
 telefono varchar(15) NOT NULL
-CONSTRAINT pk_provedores PRIMARY KEY (id_provedor)
+CONSTRAINT pk_proveedores PRIMARY KEY (id_proveedor)
 )
 
 CREATE TABLE estados (
@@ -150,12 +150,12 @@ CONSTRAINT fk_detalles_reparacion_repuestos FOREIGN KEY (id_repuesto) REFERENCES
 
 CREATE TABLE compras_repuestos (
 id_compra int identity,
-id_provedor int,
+id_proveedor int,
 id_sucursal int NOT NULL,
 fecha_compra date NOT NULL,
 total_compra decimal(10,2) NOT NULL
 CONSTRAINT pk_compras PRIMARY KEY (id_compra)
-CONSTRAINT fk_compras_provedores FOREIGN KEY (id_provedor) REFERENCES provedores (id_provedor),
+CONSTRAINT fk_compras_proveedores FOREIGN KEY (id_proveedor) REFERENCES proveedores (id_proveedor),
 CONSTRAINT fk_compras_sucursales FOREIGN KEY (id_sucursal) REFERENCES sucursales (id_sucursal)
 )
 
