@@ -1,0 +1,56 @@
+Explicacion del porque de cada tabla, no voy a explicar el porque de cada campo ya que es cuestion de abstraccion.
+
+Tablas Maestras: 
+
+Sucursales: Bastante "self explanatory". La BD se trata de una cadena de varios talleres, asi que por cada taller/sucursal
+vamos a tener distinta informacion en cuanto a lo que sucede en cada uno.
+
+Gracias a que tenemos este campo es posible deducir entre los demas que reparacion fue en que local a que momento,
+que locales se frecuentan mas, que clientes van mas a X, como cambia el stock en los mismos y demas. 
+
+Clientes: Llevar un registro de los clientes siempre es util. Mas alla de que podamos necesitar para las consultas en BD,
+ya quelo normal es tener un registro de clientes, en un negocio en el cual se trata vehiculos es importante 
+tener informacion de los dueños de los mismos o que persona lo trajo al menos.
+
+Vehiculos: Estamos tratando con una DB que es para una cadena donde se tratan vehiculos, por supuesto una tabla donde se 
+tenga registrados los mismos es importante, nuevamente algo que se explica solo.
+
+Mecanicos: Por supuesto que tambien necesitariamos un registro de nuestros empleados, nos interesa saber cuantas 
+reparaciones hace cada uno y en ciertas ocasiones nos interesaria saber quien hizo X reparacion. Tener un registro
+de esto es importantisimo para quien administre los datos a futuro.
+
+Repuestos: Aunque al principio me parecia innecesaria, mientras mas vueltas le daba al asunto me parecio que 
+era necesaria la tabla de Repuestos para poder facilitar el que piezas tenemos en que sucursales y cuales se usaron
+en que reparaciones.
+
+Tabla Intermediaria:
+
+Stocks: Necesaria para llevar un registro de cuantos repuestos hay por sucursal. en las BD relacionales no se puede crear
+relaciones de varios a varios. Teniendo en cuenta que un repuesto puede estar en varias sucursales, y una sucursal 
+puede tener varios repuestos, se crea esta relacion de N a N. Esta tabla intermediaria se encarga de resolver esto.
+
+Tabla Transaccional y sus Detalles:
+
+Reparaciones: Para guardar cuantas reparaciones se han realizado, nada impresionante.
+
+Detalles Reparaciones: en una misma reparacion pueden haber multiples cambios al vehiculo, remplazando X piezas. 
+Asi que necesitamos detalles de las reparaciones.
+
+Compra Repuestos: Saber que piezas se compraron de para que sucursal. 
+
+Detalles Compras: Cada transaccion tiene sus detalles, mismo motivo que detalles reparaciones.
+
+Tablas Auxiliares: Estas tablas cumplen la funcion de normalizar la base de datos. el objetivo es normalizarla a la NF3
+asi que no veo mucho el punto de explicar cada una por separado.
+
+La idea es que no queremos contar con multiples inserts del mismo dato, asi que insertandolo 1 sola vez en una tabla
+para luego referenciarlos nos ahorra muchos problemas, ademas de que nos podemos guardar algunos datos importantes en las
+tablas.
+
+Provincias, Ciudades, Barrios, Marcas, Modelos, Proveedores, Estados.
+
+la unica que no recuerdo muy bien porque puse es Categoria_repuestos, no se porque queria exactamente guardar 
+la "categoria" de los repuestos, no se bien a que me referia tampoco cuando lo pense y diseñe la base de datos. 
+Mi suposicion es que tal vez querriamos catalogar cada pieza con el fin de poder buscar con mas facilidad en las cosultas.
+Por ejemplo, digamos que queremos consultar cuantos repuestos para X objetivo tenemos.
+
