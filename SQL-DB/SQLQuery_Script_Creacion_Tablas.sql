@@ -7,14 +7,14 @@ GO
 
 CREATE TABLE provincias (
 id_provincia int identity,
-provincia varchar(30) NOT NULL
+provincia varchar(40) NOT NULL
 CONSTRAINT pk_provincias PRIMARY KEY (id_provincia)
 )
 
 CREATE TABLE ciudades (
 id_ciudad int identity,
 id_provincia int NOT NULL,
-ciudad varchar(30)
+ciudad varchar(50)
 CONSTRAINT pk_ciudades PRIMARY KEY (id_ciudad),
 CONSTRAINT fk_ciudad_provincias FOREIGN KEY (id_provincia) REFERENCES provincias (id_provincia)
 )
@@ -22,14 +22,14 @@ CONSTRAINT fk_ciudad_provincias FOREIGN KEY (id_provincia) REFERENCES provincias
 CREATE TABLE barrios (
 id_barrio int identity,
 id_ciudad int NOT NULL,
-barrio varchar(30) NOT NULL,
+barrio varchar(50) NOT NULL,
 CONSTRAINT pk_barrios PRIMARY KEY (id_barrio),
 CONSTRAINT fk_barriso_ciudades FOREIGN KEY (id_ciudad) REFERENCES ciudades (id_ciudad)
 )
 
 CREATE TABLE marcas (
 id_marca int identity,
-marca varchar(30) NOT NULL,
+marca varchar(40) NOT NULL,
 CONSTRAINT pk_marcas PRIMARY KEY (id_marca)
 )
 
@@ -43,20 +43,20 @@ CONSTRAINT fk_modelos_marcas FOREIGN KEY (id_marca) REFERENCES marcas (id_marca)
 
 CREATE TABLE categorias_repuestos (
 id_categoria int identity,
-categoria varchar(30) NOT NULL
+categoria varchar(50) NOT NULL
 CONSTRAINT pk_categorias PRIMARY KEY (id_categoria)
 )
 
 CREATE TABLE proveedores (
 id_proveedor int identity,
 descripcion varchar(50) NOT NULL,
-telefono varchar(15) NOT NULL
+telefono varchar(20) NOT NULL
 CONSTRAINT pk_proveedores PRIMARY KEY (id_proveedor)
 )
 
 CREATE TABLE estados (
 id_estado int identity,
-estado varchar(30) NOT NULL
+estado varchar(35) NOT NULL
 CONSTRAINT pk_estados PRIMARY KEY (id_estado)
 )
 
@@ -65,8 +65,8 @@ CONSTRAINT pk_estados PRIMARY KEY (id_estado)
 CREATE TABLE clientes (
 id_cliente int identity,
 id_barrio int,
-nombre varchar(30) NOT NULL,
-apellido varchar(30) NOT NULL,
+nombre varchar(50) NOT NULL,
+apellido varchar(50) NOT NULL,
 dni varchar(15) NOT NULL,
 fecha_nacimiento date
 CONSTRAINT pk_clientes PRIMARY KEY (id_cliente),
@@ -85,8 +85,8 @@ CONSTRAINT fk_vehiculos_modelos FOREIGN KEY (id_modelo) REFERENCES modelos (id_m
 
 CREATE TABLE mecanicos (
 id_mecanico int identity,
-nombre varchar(30) NOT NULL,
-apellido varchar(30) NOT NULL,
+nombre varchar(50) NOT NULL,
+apellido varchar(50) NOT NULL,
 fecha_nacimiento date NOT NULL,
 dni varchar(15) NOT NULL
 CONSTRAINT pk_mecanicos PRIMARY KEY (id_mecanico)
@@ -94,7 +94,7 @@ CONSTRAINT pk_mecanicos PRIMARY KEY (id_mecanico)
 
 CREATE TABLE repuestos (
 id_repuesto int identity,
-descripcion varchar(30) NOT NULL,
+descripcion varchar(50) NOT NULL,
 categoria int NOT NULL,
 precio_unitario decimal(10,2) NOT NULL
 CONSTRAINT pk_repuestos PRIMARY KEY (id_repuesto)
