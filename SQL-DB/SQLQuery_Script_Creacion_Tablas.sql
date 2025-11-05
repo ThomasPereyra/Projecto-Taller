@@ -1,3 +1,8 @@
+CREATE DATABASE DB_Taller
+Go
+
+use DB_Taller
+GO
 --Creacion de tablas auxiliares
 
 CREATE TABLE provincias (
