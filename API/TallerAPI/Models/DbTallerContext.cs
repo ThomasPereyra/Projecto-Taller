@@ -51,6 +51,9 @@ public partial class DbTallerContext : DbContext
 
     public virtual DbSet<Vehiculo> Vehiculos { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("Name=DefaultConnection");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Barrio>(entity =>
@@ -61,7 +64,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdBarrio).HasColumnName("id_barrio");
             entity.Property(e => e.Barrio1)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("barrio");
             entity.Property(e => e.IdCiudad).HasColumnName("id_ciudad");
@@ -80,7 +83,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
             entity.Property(e => e.Categoria)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("categoria");
         });
@@ -93,7 +96,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdCiudad).HasColumnName("id_ciudad");
             entity.Property(e => e.Ciudad)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("ciudad");
             entity.Property(e => e.IdProvincia).HasColumnName("id_provincia");
@@ -112,7 +115,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
             entity.Property(e => e.Apellido)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("apellido");
             entity.Property(e => e.Dni)
@@ -122,7 +125,7 @@ public partial class DbTallerContext : DbContext
             entity.Property(e => e.FechaNacimiento).HasColumnName("fecha_nacimiento");
             entity.Property(e => e.IdBarrio).HasColumnName("id_barrio");
             entity.Property(e => e.Nombre)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
 
@@ -213,7 +216,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdEstado).HasColumnName("id_estado");
             entity.Property(e => e.Estado1)
-                .HasMaxLength(30)
+                .HasMaxLength(35)
                 .IsUnicode(false)
                 .HasColumnName("estado");
         });
@@ -226,7 +229,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdMarca).HasColumnName("id_marca");
             entity.Property(e => e.Marca1)
-                .HasMaxLength(30)
+                .HasMaxLength(40)
                 .IsUnicode(false)
                 .HasColumnName("marca");
         });
@@ -239,7 +242,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdMecanico).HasColumnName("id_mecanico");
             entity.Property(e => e.Apellido)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("apellido");
             entity.Property(e => e.Dni)
@@ -248,7 +251,7 @@ public partial class DbTallerContext : DbContext
                 .HasColumnName("dni");
             entity.Property(e => e.FechaNacimiento).HasColumnName("fecha_nacimiento");
             entity.Property(e => e.Nombre)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
         });
@@ -284,7 +287,7 @@ public partial class DbTallerContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("descripcion");
             entity.Property(e => e.Telefono)
-                .HasMaxLength(15)
+                .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("telefono");
         });
@@ -297,7 +300,7 @@ public partial class DbTallerContext : DbContext
 
             entity.Property(e => e.IdProvincia).HasColumnName("id_provincia");
             entity.Property(e => e.Provincia1)
-                .HasMaxLength(30)
+                .HasMaxLength(40)
                 .IsUnicode(false)
                 .HasColumnName("provincia");
         });
@@ -353,7 +356,7 @@ public partial class DbTallerContext : DbContext
             entity.Property(e => e.IdRepuesto).HasColumnName("id_repuesto");
             entity.Property(e => e.Categoria).HasColumnName("categoria");
             entity.Property(e => e.Descripcion)
-                .HasMaxLength(30)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("descripcion");
             entity.Property(e => e.PrecioUnitario)
@@ -422,7 +425,7 @@ public partial class DbTallerContext : DbContext
 
             entity.ToTable("vehiculos");
 
-            entity.HasIndex(e => e.Patente, "UQ__vehiculo__40228D087CA85302").IsUnique();
+            entity.HasIndex(e => e.Patente, "UQ__vehiculo__40228D08D9A4161C").IsUnique();
 
             entity.Property(e => e.IdVehiculo).HasColumnName("id_vehiculo");
             entity.Property(e => e.IdCliente).HasColumnName("id_cliente");

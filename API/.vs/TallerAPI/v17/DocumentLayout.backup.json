@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Repositorio\\RepositorioNuevo2025\\TallerAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0855C136-D583-4FC7-A66B-51D8B7FD78D4}|TallerAPI\\TallerAPI.csproj|d:\\repositorio\\repositorionuevo2025\\tallerapi\\tallerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0855C136-D583-4FC7-A66B-51D8B7FD78D4}|TallerAPI\\TallerAPI.csproj|solutionrelative:tallerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0855C136-D583-4FC7-A66B-51D8B7FD78D4}|TallerAPI\\TallerAPI.csproj|d:\\repositorio\\repositorionuevo2025\\tallerapi\\tallerapi\\models\\dbtallercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0855C136-D583-4FC7-A66B-51D8B7FD78D4}|TallerAPI\\TallerAPI.csproj|solutionrelative:tallerapi\\models\\dbtallercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Repositorio\\RepositorioNuevo2025\\TallerAPI\\TallerAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "TallerAPI\\appsettings.json",
+              "ToolTip": "D:\\Repositorio\\RepositorioNuevo2025\\TallerAPI\\TallerAPI\\appsettings.json",
+              "RelativeToolTip": "TallerAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-02T20:43:40.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DbTallerContext.cs",
+              "DocumentMoniker": "D:\\Repositorio\\RepositorioNuevo2025\\TallerAPI\\TallerAPI\\Models\\DbTallerContext.cs",
+              "RelativeDocumentMoniker": "TallerAPI\\Models\\DbTallerContext.cs",
+              "ToolTip": "D:\\Repositorio\\RepositorioNuevo2025\\TallerAPI\\TallerAPI\\Models\\DbTallerContext.cs",
+              "RelativeToolTip": "TallerAPI\\Models\\DbTallerContext.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAwwDEAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T20:43:09.997Z",
+              "EditorCaption": ""
             }
           ]
         }
